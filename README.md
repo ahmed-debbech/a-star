@@ -4,6 +4,7 @@ This is a very experimental work of a visualisation for A Star pathfinding algor
 ## TODO
 **Part I:** \
 We will start by implmenting Dijkstra's algorithm (i know that's not A star)\
+We use here undirected graphs only. \
 **Part II:** \
 Then we modify the algo to turn it into A Star algorithm. \
 **Part III:** \
