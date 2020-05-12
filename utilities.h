@@ -3,6 +3,6 @@
 
 #include "graph.h"
 
+void addAjacentVertecies(Vertex * head, int numberOfVertex);
 void createGraphMap();
-void addAjacentVrtecies(Vertex * head);
 #endif
