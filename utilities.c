@@ -4,18 +4,17 @@
 #include <stdlib.h>
 
 void addAjacentVertecies(Vertex * head, int numberOfVertex){
-    int numberOfVertecies = 0;
+    int numberOfVertecies = 1;
     int done =0;
     Vertex * hold = NULL;
     do{
         Vertex * v = malloc(sizeof(Vertex));
-        hold = v;
         printf("Adding vertex number %d as adjacent to vertex number %d\n", numberOfVertecies, numberOfVertex);
         printf("Give vertex letter\n");
         scanf(" %c", &v->letter);
         printf("Give next adjacent vertex distance number\n");
         scanf("%d", &v->distanceToNext);
-        if(numberOfVertecies == 0){
+        if(numberOfVertecies == 1){
             head->next = v;
         }else{
             hold->next = v;
@@ -27,18 +26,19 @@ void addAjacentVertecies(Vertex * head, int numberOfVertex){
         if(x == 'n'){
             done = 1;
         }
+        hold = v;
         numberOfVertecies++;
     }while(numberOfVertecies <= 100 && done == 0);
 }
-Vertex ** createGraphMap(){
-    Vertex ** graph = NULL;
+Map createGraphMap(){
+    Map map;
     int numberOfVertecies = 1;
     int done = 0;
     printf("===== New Graph =======\n");
     do{
         Vertex * v = malloc(sizeof(Vertex));
-        graph = realloc(graph, sizeof(Vertex) * numberOfVertecies);
-        *graph = v;
+        map.graph = realloc(map.graph, sizeof(Vertex) * numberOfVertecies);
+        *map.graph = v;
         printf("Vertex number %d\n", numberOfVertecies);
         printf("Give vertex letter\n");
         scanf(" %c", &v->letter);
@@ -59,6 +59,7 @@ Vertex ** createGraphMap(){
         }
         numberOfVertecies++;
     }while(numberOfVertecies <= 100 && done == 0);
-    return graph;
+    return map;
 }
- 
+void showMap(){
+}

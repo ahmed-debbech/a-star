@@ -4,6 +4,7 @@
 #include "graph.h"
 
 void addAjacentVertecies(Vertex * head, int numberOfVertex);
-Vertex ** createGraphMap();
+Map createGraphMap();
+void showMap();
 
 #endif

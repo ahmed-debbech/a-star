@@ -4,7 +4,7 @@
 #include "graph.h"
 
 int main(){
-    Vertex ** map = NULL;
+    Map map;
     map = createGraphMap();
     return 0;
 }
