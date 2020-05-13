@@ -3,45 +3,62 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void addAjacentVrtecies(Vertex * head, int numberOfVertex){
+void addAjacentVertecies(Vertex * head, int numberOfVertex){
     int numberOfVertecies = 0;
     int done =0;
+    Vertex * hold = NULL;
     do{
         Vertex * v = malloc(sizeof(Vertex));
-        printf("Adding vertex number %d as adjacent to vertex number %d", numberOfVertecies, numberOfVertex);
-        printf("Give vertex letter");
+        hold = v;
+        printf("Adding vertex number %d as adjacent to vertex number %d\n", numberOfVertecies, numberOfVertex);
+        printf("Give vertex letter\n");
         scanf(" %c", &v->letter);
-        printf("Give next adjacent vertex distance number");
+        printf("Give next adjacent vertex distance number\n");
         scanf("%d", &v->distanceToNext);
+        if(numberOfVertecies == 0){
+            head->next = v;
+        }else{
+            hold->next = v;
+        }
         v->next = NULL;
-        printf("Do you want to add more vertecies to vertex number %d y:yes n:no?", numberOfVertex );
+        printf("Do you want to add more vertecies to vertex number %d y:yes n:no?\n", numberOfVertex );
         char x;
         scanf(" %c", &x);
-        if(x == 'y'){
+        if(x == 'n'){
             done = 1;
         }
         numberOfVertecies++;
     }while(numberOfVertecies <= 100 && done == 0);
 }
-void createGraphMap(){
-    Vertex * graph[100];
-    int numberOfVertecies = 0;
-    printf("===== New Graph =======");
+Vertex ** createGraphMap(){
+    Vertex ** graph = NULL;
+    int numberOfVertecies = 1;
+    int done = 0;
+    printf("===== New Graph =======\n");
     do{
         Vertex * v = malloc(sizeof(Vertex));
-        graph[numberOfVertecies] = v;
-        printf("Vertex number %d", numberOfVertecies);
-        printf("Give vertex letter");
+        graph = realloc(graph, sizeof(Vertex) * numberOfVertecies);
+        *graph = v;
+        printf("Vertex number %d\n", numberOfVertecies);
+        printf("Give vertex letter\n");
         scanf(" %c", &v->letter);
-        printf("Give next adjacent vertex distance number");
+        printf("Give next adjacent vertex distance number\n");
         scanf("%d", &v->distanceToNext);
         v->next = NULL;
-        printf("Does the vertex number %d has adjacent nodes? y: yes n: no", numberOfVertecies);
+        printf("Does the vertex number %d has adjacent nodes? y: yes n: no\n", numberOfVertecies);
         char choice;
         scanf(" %c", &choice);
         if(choice == 'y'){
             addAjacentVertecies(v, numberOfVertecies);
         }
+        printf("Want to add another vertex? y: yes n: no\n");
+        char x;
+        scanf(" %c", &x);
+        if(choice == 'n'){
+            done = 1;
+        }
         numberOfVertecies++;
-    }while(1);
+    }while(numberOfVertecies <= 100 && done == 0);
+    return graph;
 }
+ 

@@ -1,8 +1,9 @@
-#ifndef UTILITIES_H_INCLUDED
-#define UTILITIES_H_INCLUDED
+#ifndef UTILITIES_H
+#define UTILITIES_H
 
 #include "graph.h"
 
 void addAjacentVertecies(Vertex * head, int numberOfVertex);
-void createGraphMap();
+Vertex ** createGraphMap();
+
 #endif
