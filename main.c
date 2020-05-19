@@ -6,6 +6,6 @@
 int main(){
     Map map;
     map = createGraphMap();
-    //showMap(map);
+    showMap(map);
     return 0;
 }

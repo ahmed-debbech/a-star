@@ -35,22 +35,23 @@ Map createGraphMap(){
     map.size = 0;
     int numberOfVertecies = 1;
     int done = 0;
+    map.graph = NULL;
     printf("===== New Graph =======\n");
     do{
-        Vertex * v = malloc(sizeof(Vertex));
-        if(map.size > 0){
-            map.graph = realloc(map.graph, sizeof(Vertex) * numberOfVertecies);
-        }else{
-            map.graph = malloc(sizeof(Vertex));;
-        }
-        *map.graph = v;
-        map.size++;
+        Vertex * v = malloc(sizeof(Vertex)); 
+        map.graph = realloc(map.graph, sizeof(Vertex*) * numberOfVertecies);
         printf("Vertex number %d\n", numberOfVertecies);
         printf("Give vertex letter\n");
         scanf(" %c", &v->letter);
         printf("Give next adjacent vertex distance number\n");
         scanf("%d", &v->distanceToNext);
         v->next = NULL;
+        map.graph[map.size] = v;
+        map.size++;
+        int y;
+        /*for(y=0; y<map.size; y++){
+            printf("%c \n", map.graph[y]->letter);
+        }*/
         printf("Does the vertex number %d has adjacent nodes? y: yes n: no\n", numberOfVertecies);
         char choice;
         scanf(" %c", &choice);
@@ -59,7 +60,7 @@ Map createGraphMap(){
         }
         printf("Want to add another vertex? y: yes n: no\n");
         char x;
-        scanf(" %c", &x );
+        scanf(" %c", &x);
         if(x == 'n'){
             done = 1;
         }
