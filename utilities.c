@@ -59,14 +59,22 @@ Map createGraphMap(){
         }
         printf("Want to add another vertex? y: yes n: no\n");
         char x;
-        fflush(stdin);
-        scanf(" %c", &x);
-        if(choice == 'n'){
+        scanf(" %c", &x );
+        if(x == 'n'){
             done = 1;
         }
         numberOfVertecies++;
     }while(numberOfVertecies <= 100 && done == 0);
     return map;
 }
-void showMap(){
+void showMap(Map m){
+    int i=0;
+    for(i=0; i<=m.size; i++){
+        Vertex * walk = m.graph[i];
+        while(walk != NULL){
+            printf("%c ", walk->letter);
+            walk = walk->next;
+        }
+        printf("\n");
+    }
 }
