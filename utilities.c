@@ -48,10 +48,6 @@ Map createGraphMap(){
         v->next = NULL;
         map.graph[map.size] = v;
         map.size++;
-        int y;
-        /*for(y=0; y<map.size; y++){
-            printf("%c \n", map.graph[y]->letter);
-        }*/
         printf("Does the vertex number %d has adjacent nodes? y: yes n: no\n", numberOfVertecies);
         char choice;
         scanf(" %c", &choice);
@@ -70,7 +66,7 @@ Map createGraphMap(){
 }
 void showMap(Map m){
     int i=0;
-    for(i=0; i<=m.size; i++){
+    for(i=0; i<m.size; i++){
         Vertex * walk = m.graph[i];
         while(walk != NULL){
             printf("%c ", walk->letter);
