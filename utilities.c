@@ -75,3 +75,12 @@ void showMap(Map m){
         printf("\n");
     }
 }
+char * pushVertecies(char * unvisited, Map map){
+    int i;
+    unvisited = NULL;
+    for(i=1; i<=map.size; i++){
+        unvisited = realloc(unvisited, sizeof(char)*i);
+        unvisited[i-1] = map.graph[i-1]->letter;
+    }
+    return unvisited;
+}

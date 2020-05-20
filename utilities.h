@@ -6,5 +6,6 @@
 void addAjacentVertecies(Vertex * head, int numberOfVertex);
 Map createGraphMap();
 void showMap();
+char * pushVertecies(char * unvisited, Map map);
 
 #endif

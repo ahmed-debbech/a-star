@@ -12,6 +12,8 @@ int main(){
     scanf(" %c", &entry);
     printf("Give the character of the exit vertex.");
     scanf(" %c", &exit);
-    
+    char * visited; //heap located array pointer
+    char * unvisited; // heap located array pointer
+    unvisited = pushVertecies(unvisited,map);
     return 0;
 }
