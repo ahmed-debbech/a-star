@@ -69,7 +69,7 @@ void showMap(Map m){
     for(i=0; i<m.size; i++){
         Vertex * walk = m.graph[i];
         while(walk != NULL){
-            printf("%c ", walk->letter);
+            printf("(%c, %d)", walk->letter, walk->distanceToNext);
             walk = walk->next;
         }
         printf("\n");
