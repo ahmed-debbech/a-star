@@ -13,6 +13,6 @@ struct Info{
 };
 typedef struct Info Info;
 
-Info * make_info_list(Map map, );
+Info * make_info_list(Map map, char entryVertex);
 
 #endif
