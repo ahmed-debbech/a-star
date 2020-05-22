@@ -11,4 +11,5 @@ typedef struct Map{
     Vertex ** graph;
     int size;
 }Map;
+
 #endif

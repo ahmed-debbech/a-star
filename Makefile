@@ -1,7 +1,7 @@
 all : prog clean
-prog : main.o utilities.o
+prog : main.o utilities.o info.o
 	@echo "building..."
-	gcc main.c utilities.c -o prog
+	gcc main.c info.c utilities.c -o prog
 clean:
 	@echo "cleaning up..."
 	rm *.o
