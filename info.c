@@ -14,7 +14,7 @@ Info * make_info_list( Map map, char entryVertex){
         j++;
     }while(j<map.size && found == 0);
     Info * node = (Info*)malloc(sizeof(Info));
-    node->letter = map.graph[j-1];
+    node->letter = map.graph[j-1]->letter;
     node->distanceFromStart = 0; // zero because this is the starting node
     node->via = '-';
     node->next = NULL;
@@ -23,7 +23,7 @@ Info * make_info_list( Map map, char entryVertex){
     for(i=0; i<map.size; i++){
         if(map.graph[i]->letter != entryVertex){
             Info * node = (Info*)malloc(sizeof(Info));
-            node->letter = map.graph[i];
+            node->letter = map.graph[i]->letter;
             node->distanceFromStart = -1; // means Infinity (INF)
             node->via = '-';
             node->next = NULL;
@@ -32,4 +32,10 @@ Info * make_info_list( Map map, char entryVertex){
         }
     }
     return head;
+}
+void showList(Info * list){
+    while(list != NULL){
+        printf("%c , %d, %c\n", list->letter, list->distanceFromStart, list->via);
+        list = list->next;
+    }
 }

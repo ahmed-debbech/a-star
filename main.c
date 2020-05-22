@@ -18,6 +18,7 @@ int main(){
     char * visited; //heap located array pointer
     char * unvisited; // heap located array pointer
     unvisited = pushVertecies(unvisited,map);
-    listOfVertecies = make_info_list(map);
+    listOfVertecies = make_info_list(map, entry);
+    showList(listOfVertecies);
     return 0;
 }
