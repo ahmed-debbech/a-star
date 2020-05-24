@@ -6,7 +6,13 @@
 
 int main(){
     Map map;
-    Info * listOfVertecies; // this will hold all the information table of the graph
+   
+    Info * listOfVertecies = NULL; // this will hold all the information table of the graph
+   
+    Queue queue;
+    queue.head = NULL;
+    queue.tail = NULL;
+
     map = createGraphMap();
     showMap(map);
     Info infoTable[map.size];
@@ -20,5 +26,6 @@ int main(){
     unvisited = pushVertecies(unvisited,map);
     listOfVertecies = make_info_list(map, entry);
     showList(listOfVertecies);
+    enqueue(queue, listOfVertecies,map);
     return 0;
 }

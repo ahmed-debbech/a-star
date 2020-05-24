@@ -39,3 +39,6 @@ void showList(Info * list){
         list = list->next;
     }
 }
+void enqueue(Queue queue, Info * list, Map map){
+    
+}
