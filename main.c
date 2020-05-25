@@ -6,26 +6,25 @@
 
 int main(){
     Map map;
-   
-    Info * listOfVertecies = NULL; // this will hold all the information table of the graph
-   
-    Queue queue;
+
+    Queue queue; // this will hold all the information table of the graph
     queue.head = NULL;
     queue.tail = NULL;
 
     map = createGraphMap();
     showMap(map);
-    Info infoTable[map.size];
+
     char entry, exit;
     printf("Give the character of the entry vertex.");
     scanf(" %c", &entry);
     printf("Give the character of the exit vertex.");
     scanf(" %c", &exit);
+
     char * visited; //heap located array pointer
     char * unvisited; // heap located array pointer
     unvisited = pushVertecies(unvisited,map);
-    listOfVertecies = make_info_list(map, entry);
-    showList(listOfVertecies);
-    enqueue(queue, listOfVertecies,map);
+    queue = make_info_queue(map, entry);
+    showQueue(queue);
+    
     return 0;
 }

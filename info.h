@@ -17,7 +17,6 @@ typedef struct{
     Info * tail;
 }Queue;
 
-Info * make_info_list(Map map, char entryVertex);
-void showList(Info * list);
-void enqueue(Queue queue, Info * list, Map map);
+Queue make_info_queue(Map map, char entryVertex);
+void showQueue(Queue info);
 #endif

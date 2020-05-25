@@ -2,10 +2,11 @@
 #include <stdlib.h>
 #include "info.h"
 
-Info * make_info_list( Map map, char entryVertex){
+Queue make_info_queue( Map map, char entryVertex){
     int i=0,j=0;
-    Info * head = NULL;
-    Info * hold = NULL;
+    Queue queue;
+    queue.head = NULL;
+    queue.tail = NULL;
     int found = 0;
     do{
         if(map.graph[j]->letter == entryVertex){
@@ -18,8 +19,8 @@ Info * make_info_list( Map map, char entryVertex){
     node->distanceFromStart = 0; // zero because this is the starting node
     node->via = '-';
     node->next = NULL;
-    head = node;
-    hold = head;
+    queue.head = node;
+    queue.tail = node;
     for(i=0; i<map.size; i++){
         if(map.graph[i]->letter != entryVertex){
             Info * node = (Info*)malloc(sizeof(Info));
@@ -27,18 +28,25 @@ Info * make_info_list( Map map, char entryVertex){
             node->distanceFromStart = -1; // means Infinity (INF)
             node->via = '-';
             node->next = NULL;
-            hold->next = node;
-            hold = node;
+            queue.tail->next = node;
+            queue.tail = node;
         }
     }
-    return head;
+    return queue;
 }
-void showList(Info * list){
-    while(list != NULL){
-        printf("%c , %d, %c\n", list->letter, list->distanceFromStart, list->via);
-        list = list->next;
+void showQueue(Queue queue){
+    while(queue.head != NULL){
+        printf("%c , %d, %c\n", queue.head->letter, queue.head->distanceFromStart, queue.head->via);
+        queue.head = queue.head->next;
     }
 }
-void enqueue(Queue queue, Info * list, Map map){
-    
-}
+/*Queue enqueue(Queue queue, Info * list, Map map){
+    int i=0;
+    Info * inf = NULL;
+    for(i=0; i<map.size; i++){
+        if(queue.head == NULL && queue.tail == NULL){
+            inf = (Info*)malloc(sizeof(Info));
+            
+        }
+    }
+}*/
