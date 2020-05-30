@@ -7,7 +7,7 @@
 
 int main(){
     //changing stdin for faster input
-    freopen("test/graph1.txt", "r", stdin);
+    freopen("examples/graph1.txt", "r", stdin);
 
     Map map;
 
@@ -19,9 +19,9 @@ int main(){
     showMap(map);
 
     char entry, exit;
-    printf("Give the character of the entry vertex.");
+    printf("Give the character of the entry vertex.\n");
     scanf(" %c", &entry);
-    printf("Give the character of the exit vertex.");
+    printf("Give the character of the exit vertex.\n");
     scanf(" %c", &exit);
 
     char * visited; //heap located array pointer
