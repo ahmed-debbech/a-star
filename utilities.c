@@ -3,16 +3,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void addAjacentVertecies(Vertex * head, int numberOfVertex){
+void addAjacentVertecies(Vertex * head){
     int numberOfVertecies = 1;
     int done =0;
     Vertex * hold = NULL;
     do{
         Vertex * v = malloc(sizeof(Vertex));
-        printf("Adding vertex number %d as adjacent to vertex number %d\n", numberOfVertecies, numberOfVertex);
+        printf("Adding vertex number %d as adjacent to vertex '%c'\n", numberOfVertecies, head->letter);
         printf("Give vertex letter\n");
         scanf(" %c", &v->letter);
-        printf("Give next adjacent vertex distance number\n");
+        printf("Give next adjacent vertex distance number from '%c' vertex\n", head->letter);
         scanf("%d", &v->distanceToNext);
         if(numberOfVertecies == 1){
             head->next = v;
@@ -20,7 +20,7 @@ void addAjacentVertecies(Vertex * head, int numberOfVertex){
             hold->next = v;
         }
         v->next = NULL;
-        printf("Do you want to add more vertecies to vertex number %d y:yes n:no?\n", numberOfVertex );
+        printf("Do you want to add more vertecies to vertex number '%c' y:yes n:no?\n", head->letter );
         char x;
         scanf(" %c", &x);
         if(x == 'n'){
@@ -43,16 +43,15 @@ Map createGraphMap(){
         printf("Vertex number %d\n", numberOfVertecies);
         printf("Give vertex letter\n");
         scanf(" %c", &v->letter);
-        printf("Give next adjacent vertex distance number\n");
-        scanf("%d", &v->distanceToNext);
+        v->distanceToNext = 0;
         v->next = NULL;
         map.graph[map.size] = v;
         map.size++;
-        printf("Does the vertex number %d has adjacent nodes? y: yes n: no\n", numberOfVertecies);
+        printf("Does the vertex '%c' has adjacent nodes? y: yes n: no\n", v->letter);
         char choice;
         scanf(" %c", &choice);
         if(choice == 'y'){
-            addAjacentVertecies(v, numberOfVertecies);
+            addAjacentVertecies(v);
         }
         printf("Want to add another vertex? y: yes n: no\n");
         char x;
