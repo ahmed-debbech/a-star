@@ -20,9 +20,11 @@ Queue fill_distance(Map map, Queue queue){
                 //we check if it is infinit distance before we add the new one
                 if(walk->distanceFromStart == -1){
                     walk->distanceFromStart = walkList->distanceToNext;
+                    walk->via = queue.head->letter;
                 }else{
                     if(walkList->distanceToNext < walk->distanceFromStart){
                         walkList->distanceToNext = walkList->distanceToNext + walk->distanceFromStart;
+                        walk->via = queue.head->letter;
                     }
                 }
                 break;
