@@ -3,6 +3,7 @@
 #include "utilities.h"
 #include "graph.h"
 #include "info.h"
+#include "algo.h"
 
 int main(){
     Map map;
@@ -25,6 +26,7 @@ int main(){
     unvisited = pushVertecies(unvisited,map);
     queue = make_info_queue(map, entry);
     showQueue(queue);
-    
+    //queue = fill_distance(map, queue);
+    //showQueue(queue);
     return 0;
 }
