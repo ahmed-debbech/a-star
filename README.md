@@ -7,7 +7,7 @@ This is a very experimental work of a visualisation for A Star pathfinding algor
 3- 'make' command will compile \
 4- './prog' will execute. 
 ## TODO
-**Part I:** \
+**Part I:** (we are here)\
 We will start by implmenting Dijkstra's algorithm (i know that's not A star)\
 We use here undirected graphs only. \
 **Part II:** \
