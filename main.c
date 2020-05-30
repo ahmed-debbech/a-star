@@ -6,6 +6,9 @@
 #include "algo.h"
 
 int main(){
+    //changing stdin for faster input
+    freopen("test/graph1.txt", "r", stdin);
+
     Map map;
 
     Queue queue; // this will hold all the information table of the graph
@@ -26,7 +29,8 @@ int main(){
     unvisited = pushVertecies(unvisited,map);
     queue = make_info_queue(map, entry);
     showQueue(queue);
-    //queue = fill_distance(map, queue);
-    //showQueue(queue);
+    queue = fill_distance(map, queue);
+    printf("****************\n");
+    showQueue(queue);
     return 0;
 }
