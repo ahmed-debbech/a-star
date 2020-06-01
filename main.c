@@ -7,7 +7,7 @@
 
 int main(){
     //changing stdin for faster input
-    freopen("examples/graph2.txt", "r", stdin);
+    freopen("examples/graph3.txt", "r", stdin);
 
     Map map;
 
@@ -31,6 +31,10 @@ int main(){
     showQueue(queue);
     queue = fill_distance(map, queue);
     printf("****************\n");
+    showQueue(queue);
+    printf("****************\n");
+    queue = sort_distance(queue);
+    printf("out\n");
     showQueue(queue);
     return 0;
 }

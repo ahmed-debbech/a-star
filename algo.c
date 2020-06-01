@@ -35,3 +35,27 @@ Queue fill_distance(Map map, Queue queue){
     }
     return queue;
 }
+Queue sort_distance(Queue queue){
+    // we use selection sort algorithm here
+    Info * walk = queue.head->next;
+    Info * walk1;
+    Info swap;
+    printf("walkkkk %d\n", walk->distanceFromStart);
+    while(walk != NULL){
+        walk1 = walk->next;
+        printf("walk1 %d\n", walk1->distanceFromStart);
+        while(walk1 != NULL){
+            if(walk1->distanceFromStart < walk->distanceFromStart){
+                printf("walk1 inside if %d\n", walk1->distanceFromStart);
+                swap = *walk1;
+                *walk1 = *walk;
+                *walk = swap;
+            }
+            //printf("walk1 inside 2 while %d\n", walk1->distanceFromStart);
+            walk1 = walk1->next;
+        }
+        walk = walk->next;
+        printf("walk %d\n", walk->distanceFromStart);
+    }
+    return queue;
+}
