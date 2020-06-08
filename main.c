@@ -34,7 +34,6 @@ int main(){
     showQueue(queue);
     printf("****************\n");
     queue = sort_distance(queue);
-    printf("out\n");
     showQueue(queue);
     return 0;
 }

@@ -5,10 +5,14 @@
 #include <stdlib.h>
 #include "graph.h"
 
-struct Info{
+struct Data{
     char letter;
     char via;
     int distanceFromStart;
+};
+typedef struct Data Data;
+struct Info{
+    Data data;
     struct Info * next;
 };
 typedef struct Info Info;

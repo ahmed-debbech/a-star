@@ -15,18 +15,18 @@ Queue make_info_queue( Map map, char entryVertex){
         j++;
     }while(j<map.size && found == 0);
     Info * node = (Info*)malloc(sizeof(Info));
-    node->letter = map.graph[j-1]->letter;
-    node->distanceFromStart = 0; // zero because this is the starting node
-    node->via = '-';
+    node->data.letter = map.graph[j-1]->letter;
+    node->data.distanceFromStart = 0; // zero because this is the starting node
+    node->data.via = '-';
     node->next = NULL;
     queue.head = node;
     queue.tail = node;
     for(i=0; i<map.size; i++){
         if(map.graph[i]->letter != entryVertex){
             Info * node = (Info*)malloc(sizeof(Info));
-            node->letter = map.graph[i]->letter;
-            node->distanceFromStart = -1; // means Infinity (INF)
-            node->via = '-';
+            node->data.letter = map.graph[i]->letter;
+            node->data.distanceFromStart = -1; // means Infinity (INF)
+            node->data.via = '-';
             node->next = NULL;
             queue.tail->next = node;
             queue.tail = node;
@@ -36,7 +36,7 @@ Queue make_info_queue( Map map, char entryVertex){
 }
 void showQueue(Queue queue){
     while(queue.head != NULL){
-        printf("%c , %d, %c\n", queue.head->letter, queue.head->distanceFromStart, queue.head->via);
+        printf("%c , %d, %c\n", queue.head->data.letter, queue.head->data.distanceFromStart, queue.head->data.via);
         queue.head = queue.head->next;
     }
 }
