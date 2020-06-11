@@ -7,7 +7,7 @@
 
 int main(){
     //changing stdin for faster input
-    freopen("examples/graph1.txt", "r", stdin);
+    freopen("examples/graph4.txt", "r", stdin);
 
     Map map;
 
