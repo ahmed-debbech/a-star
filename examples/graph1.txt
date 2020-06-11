@@ -7,9 +7,6 @@ d
 3
 n
 y
-b
-n
-y
 c
 y
 d
