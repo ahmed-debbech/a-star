@@ -6,7 +6,7 @@
 #include "graph.h"
 #include "info.h"
 
-Queue fill_distance(Map map, Queue queue);
+Info *  fill_distance(Map map, Info * queue);
 Queue sort_distance(Queue queue);
 
 #endif

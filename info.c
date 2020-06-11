@@ -25,7 +25,7 @@ Queue make_info_queue( Map map, char entryVertex){
         if(map.graph[i]->letter != entryVertex){
             Info * node = (Info*)malloc(sizeof(Info));
             node->data.letter = map.graph[i]->letter;
-            node->data.distanceFromStart = -1; // means Infinity (INF)
+            node->data.distanceFromStart = 9999; // means Infinity (INF)
             node->data.via = '-';
             node->next = NULL;
             queue.tail->next = node;

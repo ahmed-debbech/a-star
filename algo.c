@@ -1,8 +1,8 @@
 #include "algo.h"
 
-Queue fill_distance(Map map, Queue queue){
+Info * fill_distance(Map map, Info * queue){
     Vertex * list = NULL;
-    char target = queue.head->data.letter; //the vertex we look its adjacent vertecies (usually the first in queue)
+    char target = queue->data.letter; //the vertex we look its adjacent vertecies (usually the first in queue)
     // now get target vertex from map
     int i=0;
     for(i=0; i<map.size; i++){
@@ -12,19 +12,19 @@ Queue fill_distance(Map map, Queue queue){
         }
     }
     //now we fill the adjacent vertecies of the queue
-    Info * walk = queue.head->next;
+    Info * walk = queue;
     while(walk != NULL){
         Vertex * walkList = list;
         while(walkList != NULL){
             if(walkList->letter == walk->data.letter){
                 //we check if it is infinit distance before we add the new one
-                if(walk->data.distanceFromStart == -1){
+                if(walk->data.distanceFromStart == 9999){
                     walk->data.distanceFromStart = walkList->distanceToNext;
-                    walk->data.via = queue.head->data.letter;
+                    walk->data.via = queue->data.letter;
                 }else{
                     if(walkList->distanceToNext < walk->data.distanceFromStart){
                         walkList->distanceToNext = walkList->distanceToNext + walk->data.distanceFromStart;
-                        walk->data.via = queue.head->data.letter;
+                        walk->data.via = queue->data.letter;
                     }
                 }
                 break;

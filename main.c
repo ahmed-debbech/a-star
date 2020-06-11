@@ -29,11 +29,16 @@ int main(){
     unvisited = pushVertecies(unvisited,map);
     queue = make_info_queue(map, entry);
     showQueue(queue);
-    queue = fill_distance(map, queue);
-    printf("****************\n");
-    showQueue(queue);
-    printf("****************\n");
-    queue = sort_distance(queue);
-    showQueue(queue);
+
+    Info * ptcvv = queue.head; //pointer to currect visited vertex
+    while(ptcvv != NULL){
+        ptcvv = fill_distance(map, ptcvv);
+        printf("****************\n");
+        showQueue(queue);
+        printf("****************\n");
+        queue = sort_distance(queue);
+        showQueue(queue);
+        ptcvv = ptcvv->next;
+    }
     return 0;
 }
